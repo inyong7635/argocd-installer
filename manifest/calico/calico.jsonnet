@@ -13,7 +13,7 @@ function(
     datastore="kubernetes",
     is_offline="false",
     private_registry="172.22.6.2:5000",
-    calico_version="v3.17.6",
+    calico_version="v3.24.1",
     cni_image_repo="calico/cni",
     pod2daemon_image_repo="calico/pod2daemon-flexvol",
     node_image_repo="calico/node",
@@ -21,7 +21,7 @@ function(
     log_level="info",//cni network config loglevel 변수
     logSeverityFile="info",//file의 loglevel 변수
     logSeverityScreen="info",//stdout의 loglevel 변수
-    logSeveritySys="info"//syslog level  
+    logSeveritySys="info"
 )
   local target_registry = if is_offline == "false" then "" else private_registry + "/";
 [
@@ -3939,7 +3939,7 @@ function(
     }
   },
   {
-    "apiVersion": "policy/v1beta1",
+    "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
       "name": "calico-kube-controllers",
